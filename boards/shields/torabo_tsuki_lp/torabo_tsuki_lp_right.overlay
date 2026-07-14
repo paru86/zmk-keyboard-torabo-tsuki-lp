@@ -17,8 +17,3 @@
 &size_l_transform {
     col-offset = <7>;
 };
-
-
-trackball: trackball@0 {
-    automouse-layer = <4>;
-};
