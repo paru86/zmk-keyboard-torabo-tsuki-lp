@@ -20,5 +20,5 @@
 
 
 trackball: trackball@0 {
-    automouse-layer = <5>;
+    automouse-layer = <4>;
 };
