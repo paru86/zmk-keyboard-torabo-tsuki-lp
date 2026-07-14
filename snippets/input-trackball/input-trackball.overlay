@@ -24,6 +24,33 @@
         compatible = "zmk,input-listener";
         device = <&pointing_device>;
 
-        input-processors = <&zip_temp_layer 4 700>;
+        input-processors = <
+            &zip_xy_scaler 2 3
+            &zip_temp_layer 4 700
+        >;
+    };
+};
+
+
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+    input_processors {
+        zip_scroll_x_scaler: zip_scroll_x_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+    };
+};
+&trackball_listener {
+    scroller {
+        layers = <5>;
+        input-processors = <
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_x_scaler 0 1
+        >;
     };
 };
