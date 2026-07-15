@@ -33,7 +33,6 @@
 
 
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-
 / {
     input_processors {
         zip_scroll_x_scaler: zip_scroll_x_scaler {
@@ -47,9 +46,8 @@
 };
 &trackball_listener {
     scroller {
-        layers = <2>;
+        layers = <3>;
         input-processors = <
-            &zip_xy_scaler 0 0
             &zip_xy_to_scroll_mapper
             &zip_scroll_x_scaler 0 1
         >;
