@@ -49,6 +49,7 @@
     scroller {
         layers = <2>;
         input-processors = <
+            &zip_xy_scaler 0 0
             &zip_xy_to_scroll_mapper
             &zip_scroll_x_scaler 0 1
         >;
