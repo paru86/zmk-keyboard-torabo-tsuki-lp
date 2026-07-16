@@ -36,14 +36,6 @@
         device = <&pointing_device>;
 
         /*
-         * 通常時の処理
-         */
-        input-processors = <
-            &zip_xy_scaler 1 5
-            &zip_temp_layer 4 700
-        >;
-
-        /*
          * レイヤー3有効時のスクロール処理
          */
         scroller {
