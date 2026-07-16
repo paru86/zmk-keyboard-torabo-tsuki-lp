@@ -28,6 +28,14 @@
             &zip_xy_scaler 1 4
             &zip_temp_layer 4 700
         >;
+
+        scroller {
+            layers = <3>;
+            input-processors = <
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_x_scaler 0 1
+            >;
+        };
     };
 };
 
@@ -42,14 +50,5 @@
             codes = <INPUT_REL_HWHEEL>;
             track-remainders;
         };
-    };
-};
-&trackball_listener {
-    scroller {
-        layers = <3>;
-        input-processors = <
-            &zip_xy_to_scroll_mapper
-            &zip_scroll_x_scaler 0 1
-        >;
     };
 };
