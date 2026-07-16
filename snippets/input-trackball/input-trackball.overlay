@@ -35,6 +35,7 @@
                 &zip_xy_to_scroll_mapper
                 &zip_scroll_x_scaler 0 1
             >;
+            process-next;
         };
     };
 };
