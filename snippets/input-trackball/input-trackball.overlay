@@ -18,30 +18,8 @@
 };
 
 
-#include <input/processors.dtsi>
-/ {
-    trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&pointing_device>;
-
-        input-processors = <
-            &zip_xy_scaler 1 4
-            &zip_temp_layer 4 700
-        >;
-
-        scroller {
-            layers = <3>;
-            input-processors = <
-                &zip_xy_to_scroll_mapper
-                &zip_scroll_x_scaler 0 1
-            >;
-            process-next;
-        };
-    };
-};
-
-
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <input/processors.dtsi>
 / {
     input_processors {
         zip_scroll_x_scaler: zip_scroll_x_scaler {
@@ -50,6 +28,32 @@
             type = <INPUT_EV_REL>;
             codes = <INPUT_REL_HWHEEL>;
             track-remainders;
+        };
+    };
+
+    trackball_listener: trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&pointing_device>;
+
+        /*
+         * 通常時の処理
+         */
+        input-processors = <
+            &zip_xy_scaler 1 5
+            &zip_temp_layer 4 700
+        >;
+
+        /*
+         * レイヤー3有効時のスクロール処理
+         */
+        scroller {
+            layers = <3>;
+            input-processors = <
+                &zip_xy_scaler 1 -1
+                &zip_xy_to_scroll_mapper
+                &zip_scroll_x_scaler 0 1
+            >;
+            process-next;
         };
     };
 };
