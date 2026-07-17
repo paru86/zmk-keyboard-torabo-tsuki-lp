@@ -1,4 +1,23 @@
-//&pointing_listener {
-//    status = "okay";
-//    device = <&pointing_device>;
-//};
+#include <input/processors.dtsi>
+
+&pointing_listener {
+    status = "okay";
+    device = <&pointing_device>;
+    compatible = "zmk,input-listener";
+
+    // 通常スクロール処理
+    input-processors = <
+        &zip_xy_scaler 1 6
+        &zip_temp_layer 4 700
+    >;
+
+    // スクロールレイヤーの有効化
+    scroller {
+        layers = <3>;
+        input-processors = <
+            &zip_xy_scaler 1 (-1)
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_x_scaler 0 1
+        >;
+    };
+};
