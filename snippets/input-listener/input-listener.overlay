@@ -3,13 +3,15 @@
 #include <dt-bindings/zmk/input_transform.h>
 
 // スクロール時に横方向スクロール無効化定義
-input_processors {
-    zip_scroll_x_scaler: zip_scroll_x_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_HWHEEL>;
-        track-remainders;
+/ {
+    input_processors {
+        zip_scroll_x_scaler: zip_scroll_x_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
     };
 };
 
