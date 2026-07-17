@@ -2,21 +2,21 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/input_transform.h>
 
+// スクロール時に横方向スクロール無効化定義
+input_processors {
+    zip_scroll_x_scaler: zip_scroll_x_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_HWHEEL>;
+        track-remainders;
+    };
+};
+
 &pointing_listener {
     status = "okay";
     device = <&pointing_device>;
     compatible = "zmk,input-listener";
-
-    // スクロール時に横方向スクロール無効化定義
-    input_processors {
-        zip_scroll_x_scaler: zip_scroll_x_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            type = <INPUT_EV_REL>;
-            codes = <INPUT_REL_HWHEEL>;
-            track-remainders;
-        };
-    };
 
     // 通常スクロール処理
     input-processors = <
