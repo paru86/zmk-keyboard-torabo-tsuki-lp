@@ -17,7 +17,6 @@
         input-processors = <
             &zip_xy_scaler 1 (-1)
             &zip_xy_to_scroll_mapper
-            &zip_scroll_x_scaler 0 1
         >;
     };
 };
