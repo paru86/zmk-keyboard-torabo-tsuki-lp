@@ -24,12 +24,12 @@
     input-processors = <
         &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
         &zip_xy_scaler 3 4
-        &zip_temp_layer 4 700
+        &zip_temp_layer 1 700
     >;
 
     // スクロールレイヤーの有効化
     scroller {
-        layers = <3>;
+        layers = <2>;
         input-processors = <
             &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)
             &zip_xy_scaler 1 (-1)
