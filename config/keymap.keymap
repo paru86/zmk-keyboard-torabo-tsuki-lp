@@ -79,11 +79,11 @@
 
         others {
             bindings = <
-&trans  &trans      &trans  &trans      &trans    &trans                         &trans           &trans          &trans  &trans  &trans  &trans
-&trans  &kp ESCAPE  &trans  &kp INSERT  &kp HOME  &kp PAGE_UP                    &kp PRINTSCREEN  &kp KP_NUMLOCK  &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &kp DELETE  &kp END   &kp PAGE_DOWN  &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &trans      &trans    &trans         &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &trans      &trans    &trans         &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
+&trans  &trans          &trans  &trans      &trans    &trans                         &trans           &trans          &trans  &trans  &trans  &trans
+&trans  &kp ESCAPE      &trans  &kp INSERT  &kp HOME  &kp PAGE_UP                    &kp PRINTSCREEN  &kp KP_NUMLOCK  &trans  &trans  &trans  &trans
+&trans  &trans          &trans  &kp DELETE  &kp END   &kp PAGE_DOWN  &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
+&trans  &trans          &trans  &trans      &trans    &trans         &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
+&trans  &kp LEFT_SHIFT  &trans  &trans      &trans    &trans         &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
             >;
         };
     };
