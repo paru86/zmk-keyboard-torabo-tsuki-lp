@@ -14,26 +14,13 @@
         };
     };
 
-    macros {
-        winlock: new_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LG(L)>;
-            label = "NEW_MACRO";
-        };
-    };
-
     behaviors {
         td: td {
             compatible = "zmk,behavior-tap-dance";
             label = "TD";
             #binding-cells = <0>;
-            bindings = <&none>, <&winlock>;
+            bindings = <&none>, <&agdrec>;
         };
-    };
-
-    &mt {
-        tapping-term-ms = <250>;
     };
 
     keymap {
@@ -101,11 +88,11 @@
 
         others {
             bindings = <
-&trans  &trans      &trans  &trans      &trans    &trans                         &trans           &trans          &trans  &trans  &trans  &trans
-&trans  &kp ESCAPE  &trans  &kp INSERT  &kp HOME  &kp PAGE_UP                    &kp PRINTSCREEN  &kp KP_NUMLOCK  &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &kp DELETE  &kp END   &kp PAGE_DOWN  &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &trans      &trans    &trans         &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &trans      &trans    &trans         &trans  &trans  &trans           &trans          &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans      &trans           &trans                          &trans           &trans  &trans  &trans  &trans  &trans
+&trans  &kp ESCAPE  &trans  &kp INSERT  &kp HOME         &kp PAGE_UP                     &trans           &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &kp DELETE  &kp END          &kp PAGE_DOWN   &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans      &kp PRINTSCREEN  &kp KP_NUMLOCK  &trans  &trans  &kp LC(LS(F12))  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans      &trans           &trans          &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
