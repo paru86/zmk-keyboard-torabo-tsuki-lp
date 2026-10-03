@@ -98,4 +98,8 @@
     };
 };
 
-&mt { tapping-term-ms = <250>; };
+&mt {
+    tapping-term-ms = <250>;
+    flavor = "balanced";
+};
+
