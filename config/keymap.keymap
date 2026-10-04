@@ -23,16 +23,35 @@
         };
     };
 
+    behaviors {
+        td_que_exc: td_que_exc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_QUE_EXC";
+            #binding-cells = <0>;
+            bindings = <&mt RIGHT_SHIFT QMARK>, <&kp EXCLAMATION>;
+
+            tapping-term-ms = <250>;
+        };
+
+        td_ime: td_ime {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_IME";
+            #binding-cells = <0>;
+            tapping-term-ms = <250>;
+            bindings = <&lt 5 LANGUAGE_1>, <&kp LANG2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default {
             bindings = <
-&none  &none             &none     &none     &none      &none                                      &none          &none  &none      &none       &none                     &none
-&none  &mt Q TAB         &kp W     &kp E     &kp R      &kp T                                      &kp Y          &kp U  &kp I      &kp O       &lt 2 P                   &none
-&none  &kp A             &kp S     &kp D     &kp F      &kp G            &none        &none        &kp H          &kp J  &kp K      &kp L       &kp MINUS                 &none
-&none  &mt LEFT_SHIFT Z  &kp X     &kp C     &kp V      &kp B            &kp ESC      &none        &kp N          &kp M  &kp COMMA  &kp DOT     &mt RIGHT_SHIFT QUESTION  &none
-&none  &mo 6             &kp LGUI  &kp LALT  &kp LCTRL  &lt 5 LC(SPACE)  &lt 4 SPACE  &lt 3 ENTER  &kp BACKSPACE  &none  &none      &kp DELETE  &kp SLASH                 &none
+&none  &none             &none     &none     &none      &none                              &none          &none  &none      &none       &none        &none
+&none  &mt Q TAB         &kp W     &kp E     &kp R      &kp T                              &kp Y          &kp U  &kp I      &kp O       &lt 2 P      &none
+&none  &kp A             &kp S     &kp D     &kp F      &kp G    &none        &none        &kp H          &kp J  &kp K      &kp L       &kp MINUS    &none
+&none  &mt LEFT_SHIFT Z  &kp X     &kp C     &kp V      &kp B    &kp ESC      &none        &kp N          &kp M  &kp COMMA  &kp DOT     &td_que_exc  &none
+&none  &mo 6             &kp LGUI  &kp LALT  &kp LCTRL  &td_ime  &lt 4 SPACE  &lt 3 ENTER  &kp BACKSPACE  &none  &none      &kp DELETE  &kp SLASH    &none
             >;
         };
 
@@ -91,7 +110,7 @@
 &trans  &trans      &trans  &trans      &trans           &trans                          &trans           &trans  &trans  &trans  &trans  &trans
 &trans  &kp ESCAPE  &trans  &kp INSERT  &kp HOME         &kp PAGE_UP                     &trans           &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans  &kp DELETE  &kp END          &kp PAGE_DOWN   &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans  &trans      &kp PRINTSCREEN  &kp KP_NUMLOCK  &trans  &none   &kp LC(LS(F12))  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans  &trans      &kp PRINTSCREEN  &kp KP_NUMLOCK  &trans  &trans  &kp LC(LS(F12))  &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans  &trans      &trans           &trans          &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans
             >;
         };
@@ -102,4 +121,3 @@
     tapping-term-ms = <250>;
     flavor = "balanced";
 };
-
