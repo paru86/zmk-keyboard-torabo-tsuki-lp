@@ -14,15 +14,6 @@
         };
     };
 
-    macros {
-        agdrec: new_macro {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none>;
-            label = "NEW_MACRO";
-        };
-    };
-
     behaviors {
         td_que_exc: td_que_exc {
             compatible = "zmk,behavior-tap-dance";
@@ -40,6 +31,13 @@
             tapping-term-ms = <250>;
             bindings = <&lt 5 LANGUAGE_1>, <&kp LANG2>;
         };
+
+        td_winlock: td_winlock {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_WINLOCK";
+            #binding-cells = <0>;
+            bindings = <&none>, <&kp LG(L)>;
+        };
     };
 
     keymap {
@@ -50,7 +48,7 @@
 &none  &none             &none     &none     &none      &none                              &none          &none  &none      &none       &none        &none
 &none  &mt Q TAB         &kp W     &kp E     &kp R      &kp T                              &kp Y          &kp U  &kp I      &kp O       &lt 2 P      &none
 &none  &kp A             &kp S     &kp D     &kp F      &kp G    &none        &none        &kp H          &kp J  &kp K      &kp L       &kp MINUS    &none
-&none  &mt LEFT_SHIFT Z  &kp X     &kp C     &kp V      &kp B    &kp ESC      &none        &kp N          &kp M  &kp COMMA  &kp DOT     &td_que_exc  &none
+&none  &mt LEFT_SHIFT Z  &kp X     &kp C     &kp V      &kp B    &kp ESC      &td_winlock  &kp N          &kp M  &kp COMMA  &kp DOT     &td_que_exc  &none
 &none  &mo 6             &kp LGUI  &kp LALT  &kp LCTRL  &td_ime  &lt 4 SPACE  &lt 3 ENTER  &kp BACKSPACE  &none  &none      &kp DELETE  &kp SLASH    &none
             >;
         };
