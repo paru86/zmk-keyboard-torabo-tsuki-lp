@@ -21,14 +21,14 @@
             #binding-cells = <0>;
             bindings = <&mt RIGHT_SHIFT QMARK>, <&kp EXCLAMATION>;
 
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
         };
 
         td_ime: td_ime {
             compatible = "zmk,behavior-tap-dance";
             label = "TD_IME";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <200>;
             bindings = <&lt 5 LANGUAGE_1>, <&kp LANG2>;
         };
 
