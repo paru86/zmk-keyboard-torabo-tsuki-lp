@@ -116,8 +116,6 @@
 };
 
 &mt {
-    tapping-term-ms = <250>;
     flavor = "balanced";
+    quick-tap-ms = <0>;
 };
-
-&lt { tapping-term-ms = <150>; };
